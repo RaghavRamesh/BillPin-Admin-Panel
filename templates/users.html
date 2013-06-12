@@ -1,0 +1,75 @@
+{% extends "admin.html" %}
+{% block body %}
+	
+	<h2>Users</h2>
+	
+	<form action='' method="get">
+		Search (by objectID): <input type="text" name="search">
+		<input type="submit" name="searchbtn" value="Go">
+	</form>
+		
+	<br>
+
+	<form action='' method="post">	
+		ObjectId: <input type="text" name="objectId">
+		First name: <input type="text" name="firstname">
+		Last name: <input type="text" name="lastname">
+		Join date: <input type="text" name="joindate">
+		Email: <input type="text" name="id">
+		<input type="submit" name="updatebtn" value="Update">
+	</form>	
+
+	<br>
+<!-- 
+	<form action='' method="DELETE">	
+		User ID: <input type="text" name="deleteid">
+		<input type="submit" name="deletebtn" value="Delete">
+	</form>  -->
+
+	<br><br>
+
+	<form>	
+		<table class="table-hover">
+			<tr>
+				<th>ObjectID</th>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Join Date</th>
+				<th>Email</th>
+			</tr>
+			{% for user in users %}
+			<tr>
+				<td>{{ user.objectId }}</td>		
+				<td>{{ user.firstName }}</td>
+				<td>{{ user.lastName }}</td>
+				<td>{{ user.createdAt }}</td>
+				<td>{{ user.email }}</td>
+			</tr>		
+			{% endfor %}
+		</table>
+	</form>
+
+	<form>	
+		<table class="table-hover">
+			<tr>
+
+				<th>ObjectID</th>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Join Date</th>
+				<th>Email</th>
+			</tr>
+
+			<tr>
+				<td>{{ userWrapper.objectId }}</td>
+				<td>{{ userWrapper.firstName }}</td>
+				<td>{{ userWrapper.lastName }}</td>
+				<td>{{ userWrapper.createdAt }}</td>
+				<td>{{ userWrapper.email }}</td>
+				
+			</tr>		
+
+		</table>
+	</form>
+{% endblock %}	
+

@@ -1,0 +1,57 @@
+{% extends "admin.html" %}
+{% block body %}
+	<h2>User Transactions</h2>
+	
+	<form action='' method="get">
+		Search: <input type="text" name="search">
+		<input type="submit" name="searchbtn" value="Go">
+	</form>
+
+	<br><br><br>
+
+	<form>
+		<table class="table-hover">
+			<tr>
+				<th>Transaction Id</th>
+				<th>Created At</th>
+				<th>Sender</th>
+				<th>SenderId</th>
+				<th>Receiver</th>
+				<th>Created By</th>
+				<th>Amount</th>
+			</tr>
+			{% for transaction in transactions %}
+			<tr>
+				<td>{{ transaction.objectId }}</td>
+				<td>{{ transaction.createdAt }}</td>
+				<td><a href> {{ transaction.sender['name'] }}</a></td>
+				<td>{{ transaction.sender['objectId'] }}</td>
+				<td>{{ transaction.receiver['name'] }}</td>
+				<td>{{ transaction.createdBy['name'] }}</td>
+				<td>{{ transaction.amount }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+
+	<form>
+		<table class="table-hover">
+			<tr>
+				<th>SenderId</th>
+				<th>Sender Name</th>
+				<th>ReceiverId</th>
+				<th>Receiver Name</th>
+				<th>Amount</th>
+			</tr>
+			
+			<tr>
+				<td>{{ txns['results'] }}</td>
+				<td>{{ txns.name }}</td>
+				<td>{{ txns.email }}</td>
+				<td>{{ txns.objectId }}</td>
+				<td>{{ txns.amount }}</td>
+			</tr>
+		</table>
+	</form>
+
+{% endblock %}	

@@ -1,0 +1,43 @@
+{% extends "admin.html" %}
+{% block body %}
+	<h2>Unsubsribes</h2>
+	
+	<form action='' method="get">
+		Search: <input type="text" name="search">
+		<input type="submit" name="searchbtn" value="Go">
+	</form>
+
+	<br/>
+	<br/>
+	<br/>
+
+
+	<form>
+		{{pagination.info|safe}}
+	
+		{{pagination.links|safe}}
+
+		<table class="table-hover">
+			<tr>
+				<th>#</th>
+				<th>User ID</th>
+				<th>E-mail</th>
+				<th>Unsubscribed</th>
+				<th>Source</th>
+			</tr>
+			{% for unsubscribe in unsubscribes %}
+			<tr>
+				<td>{{ loop.index  }}</td>
+				<td>{{ unsubscribe._id }}</td>
+				<td>{{ unsubscribe.email }}</td>
+				<td>{{ unsubscribe.unsubscribed }}</td>					
+				<td>{{ unsubscribe.source }}</td>
+			</tr>
+			
+			{% endfor %}
+
+		</table>
+		{{pagination.links|safe}}
+	</form>
+{% endblock %}	
+

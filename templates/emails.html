@@ -1,0 +1,34 @@
+{% extends "admin.html" %}
+{% block body %}
+	<h2>E-mails</h2>
+
+	<form action='' method="get">
+		Search: <input type="text" name="search">
+		<input type="submit" name="searchbtn" value="Go">
+	</form>
+
+	<br/>
+	<br/>
+	<br/>
+	
+	<form>
+		<table class="table-hover">
+			<tr>
+				<th>From</th>
+				<th>To</th>
+				<th>Type</th>
+				<th>Sent</th>
+				<th>For</th>
+			</tr>
+			{% for ea in emailanalytics %}
+			<tr>
+				<td>{{ ea.from }}</td>
+				<td>{{ ea.to }}</td>
+				<td>{{ ea.type }}</td>
+				<td>{{ ea.sentAt }}</td>
+				<td>{{ ea.for }}</td>					
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+{% endblock %}	

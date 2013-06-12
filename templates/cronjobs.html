@@ -1,0 +1,37 @@
+{% extends "admin.html" %}
+{% block body %}
+	<h2>Cronjobs</h2>
+
+	<form action='' method="get">
+		Search: <input type="text" name="search">
+		<input type="submit" name="searchbtn" value="Go">
+	</form>
+
+	<br/>
+	<br/>
+	<br/>
+	
+	<form>
+		<table class="table-hover">
+			<tr>
+				<th>User ID</th>
+				<th>Key</th>
+				<th>Type</th>
+				<th>CreatedAt</th>
+				<th>Completed</th>
+				<th>CompletedAt</th>
+			</tr>
+			{% for cronjob in jobs %}
+			<tr>
+				<td>{{cronjob._id}}</td>
+				<td>{{cronjob.key}}</td>
+				<td>{{cronjob.type}}</td>
+				<td>{{cronjob.createdAt}}</td>
+				<td>{{cronjob.completed}}</td>
+				<td>{{cronjob.completedAt}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+{% endblock %}	
+

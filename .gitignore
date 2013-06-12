@@ -1,0 +1,10 @@
+*.pyc
+*~
+.env
+bin/
+include/
+lib/
+local/
+parseDB/
+db.py
+filters.py
